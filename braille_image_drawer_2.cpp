@@ -22,8 +22,10 @@ int main(int argc, char* argv[]){
     }
     
     int target_length = 90;
-    int target_w =  target_length, target_h = target_length;
-    Helper helper(img_data, img_w, img_h, target_w, target_h);
+    int safe_target_h = target_length - 4;
+    int safe_target_w = target_length - 2;
+    int target_w =  safe_target_w, target_h = safe_target_h;
+    Helper helper(img_data, img_w, img_h, target_length, target_length);
 
     //Load the system info 
     std::srand(std::time(nullptr));
@@ -31,7 +33,7 @@ int main(int argc, char* argv[]){
     vector<string> sys_metrics = SysInfo::get_metrics(rand_color);
     int metric_idx = 0;
 
-    for(int y = 0; y < target_h; y+=4){ 
+    for(int y = 0; y < target_h; y+=4){  
        for(int x = 0; x < target_w; x+=2){
         char braille_utf8[4];
         helper.get_pattern(x, y, braille_utf8);

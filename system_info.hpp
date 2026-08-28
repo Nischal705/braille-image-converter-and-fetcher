@@ -163,9 +163,9 @@ struct SysInfo {
         lines.push_back(primary + "CPU: " + reset + accent + cpu_model + " (" + std::to_string(cpu_cores) + ")" + reset);
 
         // 11. GPU
-        std::string gpu = exec("lspci 2>/dev/null | grep -i 'vga\\|3d\\|display' | cut -d ':' -f3 | xargs");
-        if (gpu.empty()) gpu = "Intel UHD Graphics 620";
-        lines.push_back(primary + "GPU: " + reset + accent + gpu + reset);
+        // std::string gpu = exec("lspci 2>/dev/null | grep -i 'vga\\|3d\\|display' | cut -d ':' -f3 | xargs");
+        // if (gpu.empty()) gpu = "Intel UHD Graphics 620";
+        // lines.push_back(primary + "GPU: " + reset + accent + gpu + reset);
 
         // 12. Memory
         std::ifstream mem_file("/proc/meminfo");
